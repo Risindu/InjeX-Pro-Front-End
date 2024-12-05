@@ -1,0 +1,67 @@
+.sidebar {
+  flex: 1;
+  width: 200px;
+  height: 400vh; /* Adjust the height to account for the navbar */
+  background: linear-gradient(135deg, #74005B, #110158);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+
+  .sidebar__logo {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    img {
+      width: 40px;
+      margin-right: 10px;
+    }
+    h2 {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+
+  .sidebar__menu {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 200px;
+    position: fixed;
+
+    li {
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
+      padding: 15px 0;
+      color: white;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        width: 200px;
+      }
+
+      .icon {
+        margin-right: 10px;
+        font-size: 20px;
+      }
+
+      span {
+        font-size: 18px;
+      }
+
+      .menu-item {
+        text-decoration: none; /* Removes underline */
+        color: inherit; /* Inherits color from parent styling */
+
+        &.active {
+          font-weight: bold; /* Optional: highlight active link */
+        }
+      }
+    }
+  }
+}

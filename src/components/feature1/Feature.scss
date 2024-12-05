@@ -1,0 +1,138 @@
+.temperature-dashboard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: -7px 5px 23px -4px rgba(0, 0, 0, 0.67);
+  padding: 24px;
+  margin: 40px 30px;
+
+  .main-section {
+    margin-bottom: 30px;
+  }
+
+  .secondary-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+.temperature-section {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  .section-header {
+    margin-bottom: 24px;
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 600;
+      color: #2c3e50;
+
+      .temp-icon {
+        margin-left: 8px;
+        color: #3498db;
+      }
+    }
+  }
+
+  .temperature-display {
+    .progress-bars {
+      display: flex;
+      justify-content: space-around;
+      gap: 24px;
+      padding: 16px 0;
+
+      .progress-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 120px;
+
+        .temp-gauge {
+          width: 100%;
+          height: auto;
+
+          &.inlet-temp {
+            .CircularProgressbar-path {
+              stroke: #6357df;
+            }
+          }
+
+          &.outlet-temp {
+            .CircularProgressbar-path {
+              stroke: #f47018;
+            }
+          }
+
+          &.oil-temp {
+            .CircularProgressbar-path {
+              stroke: #34db39;
+            }
+          }
+
+          &.ambient-temp {
+            .CircularProgressbar-path {
+              stroke: #e74c3c;
+            }
+          }
+
+          .CircularProgressbar-trail {
+            stroke: #e9ecef;
+          }
+
+          .CircularProgressbar-text {
+            fill: #2c3e50;
+            font-weight: 600;
+            font-size: 16px;
+          }
+        }
+
+        .temp-label {
+          font-size: 16px;
+          font-weight: 500;
+          color: #6c757d;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 1200px) {
+  .secondary-sections {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .temperature-dashboard {
+    margin: 20px 15px;
+    padding: 16px;
+  }
+
+  .temperature-section {
+    .section-header {
+      .section-title {
+        font-size: 20px;
+      }
+    }
+
+    .temperature-display {
+      .progress-bars {
+        flex-wrap: wrap;
+        gap: 16px;
+
+        .progress-item {
+          width: 100px;
+        }
+      }
+    }
+  }
+}

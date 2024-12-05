@@ -1,0 +1,259 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background: linear-gradient(135deg, #74005b, #110158);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1000;
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__notification, &__user-menu {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+  }
+
+  &__icon {
+    font-size: 1.25rem;
+    color: #ffffff;
+  }
+
+  &__notification-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #f44336;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__user-text {
+    font-size: 0.9rem;
+    color: #ffffff;
+  }
+
+  &__notifications-dropdown, &__user-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-top: 0.5rem;
+    z-index: 1000;
+  }
+
+  &__notifications-dropdown {
+    width: 350px;
+    max-width: 90vw;
+  }
+
+  &__notifications-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+
+    h4 {
+      margin: 0;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .close-button {
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: #666;
+      line-height: 1;
+      padding: 0 0.5rem;
+
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+
+  &__notifications-content {
+    max-height: 400px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 3px;
+    }
+  }
+
+  &__notification-item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-left: 4px solid transparent;
+
+    &:hover {
+      background-color: #f8f9fa;
+    }
+
+    &.unread {
+      background-color: #f0f7ff;
+      
+      &:hover {
+        background-color: #e3f2ff;
+      }
+
+      .notification-message {
+        font-weight: 500;
+      }
+    }
+
+    &.severity-critical {
+      border-left: 4px solid #d32f2f;
+      background-color: #fff8f8;
+
+      &:hover {
+        background-color: #ffe8e8;
+      }
+
+      &.unread {
+        background-color: #fff0f0;
+        
+        &:hover {
+          background-color: #ffe8e8;
+        }
+      }
+    }
+
+    &.severity-high {
+      border-left: 4px solid #f44336;
+
+      &.unread {
+        background-color: #fff4f2;
+        
+        &:hover {
+          background-color: #ffe8e4;
+        }
+      }
+    }
+
+    &.severity-warning {
+      border-left: 4px solid #ff9800;
+
+      &.unread {
+        background-color: #fff8f0;
+        
+        &:hover {
+          background-color: #fff4e8;
+        }
+      }
+    }
+
+    &.severity-info {
+      border-left: 4px solid #2196f3;
+    }
+
+    &.empty, &.loading {
+      color: #666;
+      text-align: center;
+      cursor: default;
+      padding: 2rem 1rem;
+      border-left: none;
+    }
+
+    .notification-content {
+      .notification-message {
+        margin: 0 0 0.5rem 0;
+        color: #333;
+        line-height: 1.4;
+      }
+
+      .notification-time {
+        font-size: 0.75rem;
+        color: #888;
+      }
+    }
+  }
+
+  &__user-dropdown {
+    min-width: 200px;
+  }
+
+  &__user-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: #333;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #f8f9fa;
+    }
+
+    .navbar__logout-icon {
+      color: #666;
+    }
+  }
+}
+
+// Media queries for responsive design
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+
+    &__notifications-dropdown,
+    &__user-dropdown {
+      right: 1rem;
+      width: calc(100vw - 2rem);
+    }
+
+    &__user-text {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    &__right {
+      gap: 1rem;
+    }
+
+    &__notification, &__user-menu {
+      padding: 0.25rem;
+    }
+  }
+}

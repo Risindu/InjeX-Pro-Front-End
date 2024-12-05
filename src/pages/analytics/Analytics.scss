@@ -1,0 +1,177 @@
+.analytics {
+  display: flex;
+  width: 100%;
+
+  .analyticsContainer {
+    flex: 4;
+    background-color: #f8f9fa;
+
+    .analyticsContent {
+      padding: 20px;
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+    }
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
+
+  p {
+    color: #666;
+    font-size: 16px;
+  }
+}
+
+.headerSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  h2 {
+    font-size: 24px;
+    color: #333;
+    font-weight: 600;
+  }
+
+  .updateTime {
+    color: #666;
+    font-size: 14px;
+  }
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.metricCard {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  .cardIcon {
+    background-color: #f0f7ff;
+    padding: 12px;
+    border-radius: 8px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      color: #007bff;
+    }
+  }
+
+  .cardContent {
+    h3 {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin: 0;
+    }
+  }
+}
+
+.chartSection {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+
+  h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .chartContainer {
+    height: 300px;
+  }
+}
+
+.machineState {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  width: fit-content;
+  font-weight: 600;
+  font-size: 18px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.normal {
+    background-color: #d4edda;
+    color: #28a745;
+    svg {
+      color: #28a745;
+    }
+  }
+
+  &.warning {
+    background-color: #fff3cd;
+    color: #ffc107;
+    svg {
+      color: #ffc107;
+    }
+  }
+
+  &.critical {
+    background-color: #f8d7da;
+    color: #dc3545;
+    svg {
+      color: #dc3545;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .chartSection {
+    padding: 15px;
+    
+    .chartContainer {
+      height: 250px;
+    }
+  }
+
+  .metricCard {
+    .cardContent {
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+}
